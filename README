@@ -1,11 +1,23 @@
- One record reply trivial DNS server with pool of workers, connected by
- array of chanals
+ One record reply trivial, but multithreaded DNS server with pool of workers,
+ coupled by array of channals.
 
- this is an simple example for my students about creating network services
- at Go.
- Also I would like to deliver my expressions about Go, compare it with
- Erlang.
 
+ This is an simple example for my students about creating network services
+ at Go. It show simple code with load balancing for 256 workers.
+
+ Single goroutine listen socket and dispatch asks to some worker from array.
+ Number of worker is low byte of DNS message ID from ask.
+ The main routine put Ask for worker with some ID to his channal,
+ each worker have endless loop for reading his channal and do reply. 
+
+ Also, I would like to deliver my expressions about Go, compare it with
+ Erlang. For me this weekend was under Go flag. 
+ I never write code at go before, but now, after one day deep coding I can write on Go.
+ It easy language with good speed of creating pilot projects.
+ The main time was spent on slices,arrays and tuples sintaxis, variable
+ initializations. Unfortunally it not such rock-solid and stable as Erlang
+ on high load. At least for me, nuewbie for Golang. It like C (or Slang) but with more
+ comfortable sintaxis and some modern nuts and belts. 
 
  (C) Dmitry Podkorytov 2016
 
